@@ -1,0 +1,60 @@
+/**index.wxss**/
+/**.userinfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.userinfo-avatar {
+  width: 128rpx;
+  height: 128rpx;
+  margin: 20rpx;
+  border-radius: 50%;
+}
+
+.userinfo-nickname {
+  color: #aaa;
+}
+
+.usermotto {
+  margin-top: 200px;
+}**/
+
+.banner{
+  max-width: 100%;
+}
+
+.e{
+  margin-top: 0px;
+}
+
+.e2{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content:center;
+  margin-top: 5px;
+}
+
+.expression{
+  width: 30%;
+}
+
+.cal{
+  margin-top: 20px;
+}
+
+.r{
+  width: 10%;
+}
+.m{
+  width: 10%;
+}
+
+.bottons{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content:center;
+  margin-top: 40px;
+}

@@ -1,0 +1,31 @@
+<!--index.wxml-->
+<view class="container">
+
+
+  <image src="../../res/banner.png" class="banner"></image>
+
+<view class="e">
+
+
+<view class="equations">
+<!--<template is="eqn" wx:for="{{array}}" id="{{index}}"></template>-->
+<view class="e2" wx:for="{{array}}">
+  <input type="text" name='expression' placeholder="expression" class="expression" bindinput="inputExpression" data-i="{{index}}"></input>≡
+  <input type="text" name="r" placeholder="r" class="r" bindinput="inputR" data-i="{{index}}"></input> (mod 
+  <input type="text" name="mod" placeholder="m" class="m" bindinput="inputMod" data-i="{{index}}"></input> )
+  </view>
+</view>
+
+<view style="display: flex;justify-content:center;margin-top:5px">{{answer}}</view>
+
+<view class="bottons">
+<button bindtap="add">增加方程</button>
+<button bindtap="delete">删除方程</button>
+</view>
+
+<view class = "cal">
+  <button bindtap="calculate">解方程！</button>
+</view>
+
+</view>
+</view>
