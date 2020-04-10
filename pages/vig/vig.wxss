@@ -1,0 +1,31 @@
+/* pages/vig/vig.wxss */
+.texts{
+  margin-top: 20px;
+}
+
+.title{
+  margin-top: -50px;
+}
+
+.decrypted{
+  margin-top: 10px;
+}
+
+#de{
+  margin-top: 3px;
+}
+
+#ke{
+  margin-top: 3px;
+}
+
+#en{
+  margin-top: 3px;
+}
+
+.divLine{
+  margin-top: 1px;
+  background: rgb(114, 114, 114);
+  width: 100%;
+  height: 5rpx;
+ }

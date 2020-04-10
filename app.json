@@ -1,13 +1,34 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/logs/logs"
+    "pages/vig/vig",
+    "pages/about/about"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "WeChat",
+    "navigationBarTitleText": "ty的数论工具箱",
     "navigationBarTextStyle": "black"
+  },
+  "tabBar":{
+    "color": "#000000",
+    "selectedColor": "#ff0000",
+    "backgroundColor":"#ffffff",
+    "list":[
+      {
+        "pagePath":"pages/index/index",
+        "text":"同余",
+        "iconPath":"./res/icons/同余.jpg",
+        "selectedIconPath":"./res/icons/同余_selected.jpg"
+      },
+      {
+        "pagePath":"pages/vig/vig",
+        "text":"维吉尼亚密码",
+        "iconPath":"./res/icons/vig.jpg",
+        "selectedIconPath":"./res/icons/vig_selected.jpg"
+      }
+    ],
+    "position":"bottom"
   },
   "style": "v2",
   "sitemapLocation": "sitemap.json"

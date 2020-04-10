@@ -36,6 +36,11 @@
   margin-top: 5px;
 }
 
+.version{
+  align-self:flex-end;
+  font-size: 8pt;
+}
+
 .expression{
   width: 30%;
 }

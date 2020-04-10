@@ -6,14 +6,38 @@ var interpreter = require('../../res/interpreter.js');
 
 Page({
   data: {
+    lastTap:null,
+    count: 0,
     array: [1],
     answer:'解将于此处显示',
     expressions:[],
     rs:[],
     mods:[],
-    temp:null
+    temp:null,
+    ifLeagal:1
   },
   //事件处理函数
+  gotoAbout:function(){
+    let that = this;
+    let count = that.data.count;
+    console.log(count)
+    let lasttime = that.data.lastTap||new Date().getTime();
+    let thistime = new Date().getTime();
+    (thistime-lasttime<1000)? count+=1:count=0;
+    if (count>=5) {
+      wx.navigateTo({
+        url: '../about/about',
+      });
+      console.log("About")
+      count = 0;
+    }
+    that.setData({
+      lastTap:thistime,
+      count:count
+    })
+    //console.log(lasttime);
+  },
+
   add:function(){
    var that = this;
    let array = that.data.array;
@@ -26,6 +50,32 @@ Page({
   delete:function(){
     var that = this;
    let array = that.data.array;
+   let expressions = that.data.expressions;
+   let rs = that.data.rs;
+   let mods = that.data.mods;
+   let len = array.length;
+   
+  if (expressions.length==len){
+    expressions.pop();
+    that.setData({
+      expressions:expressions
+    });
+    //console.log(that.data);
+  }
+  if (rs.length==len){
+    rs.pop();
+    that.setData({
+      rs:rs
+    });
+    //console.log(that.data);
+  }
+  if (mods.length==len){
+    mods.pop();
+    that.setData({
+      mods:mods
+    });
+    console.log(that.data);
+  }
    array.pop();
    that.setData({
     array:array
@@ -77,10 +127,25 @@ Page({
     this.calculate = function(x){return interpreter.run((this.calculateValue(x)+ '%' + this.mod),{'wx':wx,'page':this});};//计算输入x时方程的同余值
     this.ifSolution = function(x){return this.calculate(x)==this.r%this.mod;};//判断x是否为方程的解
 },**/
-
+//功能函数
  solveEqn:function(expressions,rs,mods){
   //console.log(eqns)
   var that=this;
+
+  //检查是否存在空方程
+  for(var i=0;i<expressions.length;i++){
+    if(expressions[i]==undefined||rs[i]==undefined||mods[i]==undefined||expressions[i]==""||rs[i]==""||mods[i]==""){
+      return "请检查是否有空方程";
+    }
+  }
+  //检查表达式是否合法
+  //var ifLeagle = 1;
+  for (var i=0;i<expressions.length;i++){
+    interpreter.run("try{var x=0;" + expressions[i]+ ";}catch(e){console.log(\'err\',e);page.setData({ifLeagal:0})};",{'page':that});
+  }
+  console.log("if leagle: ",that.data.ifLeagal)
+  if(that.data.ifLeagal==0){that.setData({ifLeagal:1});return "不合法的表达式！"}
+  
   
   let solve = [];
 
@@ -121,7 +186,8 @@ Page({
   function ifSolution_g(x){
       let a = 1;
       for(var i=0;i<expressions.length;i++){
-          a *= (calcu(expressions[i],x) % mods[i] == rs[i]%mods[i]);
+        let t = calcu(expressions[i],x)% mods[i];
+          a *= (t  == rs[i]%mods[i]||t == (rs[i]%mods[i])+parseInt(mods[i]));
           //a *= eqns[i].ifSolution(x);
       }
       return a;
@@ -134,6 +200,7 @@ Page({
           solve.push(i);
       }
   }
+  if(solve.length==0) return "无解！";//输出无解
   return (solve + "(mod" + lsm_n + ")");
 },
 
@@ -158,8 +225,7 @@ parseFormula:function (fstr){
         }
         else{
             //将x前的部分作为系数
-            //console.log(str.slice(0,str.search(/x/)+1) + '*' + 'Math.pow(x,' + power + ')');
-            return str.slice(0,str.search(/x/)+1) + '*' + 'Math.pow(x,' + power + ')';
+            return str.slice(0,str.search(/x/))  + 'Math.pow(x,' + power + ')';
         }
     }
 }

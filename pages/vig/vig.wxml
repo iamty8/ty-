@@ -1,0 +1,24 @@
+<view class="container">
+  <view class="title">
+  <image src="../../res/vigs/vig-title.jpg" mode="aspectFit"></image>
+  </view>
+  <view class="inputs">
+    <view class="key">
+      密钥：
+      <textarea id="ke" value="{{key}}" bindinput="keyIn" auto-height="true" placeholder="在此输入密钥"></textarea>
+    </view>
+    <view class="divLine"></view>
+    <view class="texts">
+      <view>
+        密文：
+        <textarea id="en" value="{{encrypted}}" bindinput="enIn" auto-height="true" placeholder="在此输入密文"></textarea>
+      </view>
+      <view class="divLine"></view>
+      <view class="decrypted">
+        明文：
+        <textarea id="de" value="{{decrypted}}" bindinput="deIn" auto-height="true" placeholder="在此输入明文"></textarea>
+      </view>
+      <view class="divLine"></view>
+    </view>
+  </view>
+</view>
