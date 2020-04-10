@@ -2,6 +2,7 @@
 [Dd]esktop.ini
 Thumbs.db
 $RECYCLE.BIN/
+protect.config.json
 
 # macOS
 .DS_Store
