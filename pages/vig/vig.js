@@ -1,3 +1,4 @@
+const app = getApp();
 Page({
   data:{
     key:"",
@@ -7,11 +8,24 @@ Page({
   },
 
   //事件处理函数
+  gotoHelp:function(){
+    app.gotoHelp("vig");
+  },
+
   keyIn:function(e){
     let that = this;
+    let keyi = e.detail.value;
+    let key_i = keyi.split("")
+    for(let i=key_i.length-1;i>-1;i--){
+      if(key_i[i].charCodeAt()>122||key_i[i].charCodeAt()<65||(key_i[i].charCodeAt()>90&&key_i[i].charCodeAt()<97)) {
+        key_i.splice(i,1);
+        keyi = key_i.join("");
+      }
+    }
+    console.log(keyi,typeof(keyi))
     
     that.setData({
-      key:e.detail.value
+      key:keyi
     })//一定要先更新key的值
     let key = this.data.key;
     let encrypted = that.data.encrypted;
@@ -97,12 +111,12 @@ Page({
 
     let keyLength = key.length;//保存密钥长度避免重复运算
     let sym;//加密和解密的符号差
-    let spaces = 0;//要跳过的文本中的空格数
+    let spaces = 0;//要跳过的文本中的特殊符号数
     (de == "d") ?  (sym = -1):(sym=1);//判断加密解密
     for(let i=0;i<charSet.length;i++){
-        if(charSet[i]==" ".charCodeAt()-65){
+        if(charSet[i]>25||charSet[i]<0){
             spaces += 1;
-            encrypted.push(" ");
+            encrypted.push(String.fromCharCode(charSet[i]+65));
             continue;
         }
         let temp = (sym*keySet[(i-spaces)%keyLength]+charSet[i])%26;//利用同模运算加密解密

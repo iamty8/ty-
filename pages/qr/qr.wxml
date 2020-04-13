@@ -1,0 +1,23 @@
+<view class = "container">
+  <view class = "decoration">
+  </view>
+  <view class='function'>
+    <view class = "in">
+      m:<input type="text" bindinput="inM"></input>
+    </view>
+    <view class="divLine"></view>
+    <view class="display">
+      二次剩余为
+    </view>
+    <textarea class = "result" value="{{result}}"  auto-height="true">
+      
+    </textarea>
+    <view class="divLine"></view>
+    <view class = "button">
+      <button bindtap="cal">求解</button>
+    </view>
+  </view>
+  <view class="help">
+    <text bindtap="gotoHelp">第一次使用？点击这里查看使用说明</text>
+  </view>
+</view>

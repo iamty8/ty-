@@ -2,7 +2,9 @@
   "pages": [
     "pages/index/index",
     "pages/vig/vig",
-    "pages/about/about"
+    "pages/about/about",
+    "pages/qr/qr",
+    "pages/help/help"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -26,6 +28,12 @@
         "text":"维吉尼亚密码",
         "iconPath":"./res/icons/vig.jpg",
         "selectedIconPath":"./res/icons/vig_selected.jpg"
+      },
+      {
+        "pagePath":"pages/qr/qr",
+        "text":"二次剩余",
+        "iconPath":"./res/icons/qr.jpg",
+        "selectedIconPath":"./res/icons/qr_selected.jpg"
       }
     ],
     "position":"bottom"

@@ -1,9 +1,10 @@
 <!--index.wxml-->
+<!--<image bindtap="gotoAbout" src="../../res/banner.png" class="banner"></image>-->
 <view class="container">
 
 
   <image bindtap="gotoAbout" src="../../res/banner.png" class="banner"></image>
-<view class="version">v0.4.0　</view>
+<view class="version">v0.6.0　</view>
 <view class="e">
 
 
@@ -29,4 +30,9 @@
 </view>
 
 </view>
+
+<view class="help">
+ <text bindtap="gotoHelp">第一次使用？点击这里查看使用说明</text>
+</view>
+
 </view>

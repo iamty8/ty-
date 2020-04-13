@@ -1,5 +1,5 @@
 Page({
   data:{
-    message:"About"
+    message:"About页面施工中！"
   }
 })

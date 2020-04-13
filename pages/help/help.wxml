@@ -1,0 +1,5 @@
+<view>
+  <web-view wx:if="{{section==\"eqn\"}}" src="https://mp.weixin.qq.com/s?__biz=MzIxODA2OTQ5Nw==&mid=2247483768&idx=2&sn=6cf83e5e0873451382e2d3a382b843f3&chksm=97f161eea086e8f8aabf01d0ecb3b26ddf29954e59832d1d3a07c4563016f4ec0483f8918268&token=1469239055&lang=zh_CN#rd"></web-view>
+  <web-view wx:if="{{section==\"vig\"}}" src="https://mp.weixin.qq.com/s?__biz=MzIxODA2OTQ5Nw==&mid=2247483768&idx=3&sn=e6ebdc1c2619947ac4d075916c9d69ce&chksm=97f161eea086e8f89b12917bf9f4dbcb88c4a5161e8c849c2546ca98760369e0cc8070a501b5&token=1469239055&lang=zh_CN#rd"></web-view>
+  <web-view wx:if="{{section==\"qr\"}}" src="https://mp.weixin.qq.com/s?__biz=MzIxODA2OTQ5Nw==&mid=2247483768&idx=4&sn=0becdfff7ea9ba6409ba792994201a06&chksm=97f161eea086e8f8321a8b3dc3239954adfc5caac6027bb59a42db054329ad0c6f652b64eb5f&token=1469239055&lang=zh_CN#rd"></web-view>
+</view>

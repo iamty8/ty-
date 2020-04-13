@@ -1,0 +1,16 @@
+/* pages/qr/qr.wxss */
+.in{
+  margin-top: 40px;
+}
+
+.display{
+  margin-top: 20px;
+}
+
+.result{
+  margin-top: 10px;
+}
+
+ .button{
+   margin-top:25px;
+ }
